@@ -1,14 +1,20 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Student student1 = new Student();
-        student1.name = "Andrew Sears";
+        ArrayList<Teacher> teachers = new ArrayList<Teacher>();
 
-        Teacher teacher1 = new Teacher("Mr. Latimer","Algebra 2",student1);
-        teacher1.greetStudents();
-        teacher1.giveLesson();
+        Student student1 = new Student("Andrew Sears", 11, false, null);
+        Student student2 = new Student("Eli Phillips", 12, false, null);
+        Teacher teacher1 = new Teacher("Mr. Latimer","Algebra 2", 123456);
+        teachers.add(teacher1);
+        teachers.get(0).addStudent(student1);
+        teachers.get(0).addStudent(student2);
+        teachers.get(0).greetStudents();
+        teachers.get(0).giveLesson();
 
-        Teacher teacher2 = new Teacher("Mr. Reddy", "Pre-Calculus",null);
-        teacher2.greetStudents();
-        teacher2.giveLesson();
+        teachers.add(new Teacher("Mr. Reddy", "Pre-Calculus",0000));
+        teachers.get(1).greetStudents();
+        teachers.get(1).giveLesson();
     }
 }

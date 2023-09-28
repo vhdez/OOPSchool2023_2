@@ -17,4 +17,8 @@ public class Assignment {
 
     }
 
+    public String toString() {
+        return "Assignment # " + lessonNumber;
+    }
+
 }

@@ -1,29 +1,29 @@
+import java.util.ArrayList;
+
 class Teacher {
     // Fields
     private String name;
     private String subject;
-    private Student student;
+    final private ArrayList<Student> students;
+    private int creditCard;
 
-    public Teacher(String name, String subject, Student student) {
+    public Teacher(String name, String subject, int creditCard) {
         this.name = name;
         this.subject = subject;
-        this.student = student;
+        this.students = new ArrayList<Student>();
+        this.creditCard = creditCard;
     }
 
-    void greetStudents() {
-        if (student != null) {
-            System.out.println("Hi " + student + ", it's " + getName());
-        } else {
-            System.out.println("Hi students, it's " + getName());
-        }
+    public void addStudent(Student newStudent) {
+        this.students.add(newStudent);
     }
 
-    void giveLesson() {
-        System.out.println("Alright everyone, let's talk about...");
+    public Student getStudentNumber(int number) {
+        return this.students.get(number);
     }
 
-    void assignHW() {
-        System.out.println("Tonight I need you to...");
+    public void forgetStudent(Student oldStudent) {
+        this.students.remove(oldStudent);
     }
 
     public String getName() {
@@ -42,11 +42,30 @@ class Teacher {
         this.subject = subject;
     }
 
-    public Student getStudent() {
-        return student;
+    void greetStudents() {
+        students.forEach((student) -> System.out.print(" Hi " + student.getName()));
+        System.out.println(" It's your teacher " + getName());
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    void giveLesson() {
+        if (students.isEmpty()) {
+            System.out.println("Where are my students?");
+        } else {
+            System.out.print("Alright ");
+            students.forEach((student) -> System.out.print(student.getName() + " "));
+            System.out.println(", let's talk about...");
+        }
+    }
+
+    void assignHW() {
+        System.out.println("Tonight I need you to...");
+    }
+
+    void buyALesson() {
+        System.out.println("Buy a lesson using credit card #" + creditCard);
+    }
+
+    public String toString() {
+        return "Teacher named " + name;
     }
 }
