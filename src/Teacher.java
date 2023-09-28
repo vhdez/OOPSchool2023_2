@@ -43,8 +43,10 @@ class Teacher {
     }
 
     void greetStudents() {
-        students.forEach((student) -> System.out.print(" Hi " + student.getName()));
-        System.out.println(" It's your teacher " + getName());
+        System.out.println("Hi " + students + " , it's your teacher " + getName());
+        // ADVANCED
+        //students.forEach((student) -> System.out.print(" Hi " + student.getName()));
+        //System.out.println(" It's your teacher " + getName());
     }
 
     void giveLesson() {
